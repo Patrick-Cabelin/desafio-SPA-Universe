@@ -1,0 +1,14 @@
+*{
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 65.2%;
+}
+
+body{
+    background:rgba(31, 29, 29, 0.95) ;
+    font-size: 2rem
+}
