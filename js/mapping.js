@@ -1,5 +1,6 @@
 export class Mapping{
-    
+   
+  
 
     manager(){
         const { pathname} = window.location
@@ -10,18 +11,18 @@ export class Mapping{
            main.innerHTML = infoPage
 
         })
-        
+        this.changeBackground()
     }
 
     router(event){
-      console.log("KKARALHO FINUNCIONAD KACETE NDE NOTE DO KAREI")
+   
       event = event || window.event
       event.preventDefault()
       window.history.pushState({}, "", event.target.href)
-      console.log(event)
+    
       
       this.manager()
-      this.changeBackground()
+     
     }
 
     way(wayName, page){
@@ -31,23 +32,45 @@ export class Mapping{
  
     changeBackground(){
       const body = document.querySelector('body')
-      let { href, pathname } = window.location
-     console.log(pathname,'ai papaii', href)
+      let { pathname } = window.location
 
       
       switch (pathname) {
         case '/':
-          body.style.backgroundColor = "red"
+          body.style.background = "url(./assets/mountains-universe-1.png)"
+          body.style.backgroundSize= "100% 100vh"
+          this.boldLink()
           break
         case '/explore':
-          body.style.backgroundColor = "green"
+          body.style.background = "url(./assets/mountains-universe-2.png)"
+          body.style.backgroundSize= "100% 100vh"
+          this.boldLink()
           break
         case '/universe':
-          body.style.backgroundColor = "blue"
+          body.style.background = "url(./assets/mountains-universe-3.png)"
+          body.style.backgroundSize= "100% 100vh"
+          this.boldLink()
         default:
           break
       }
 
+    }
+
+    boldLink(){
+      let { pathname } = window.location
+
+      switch (pathname){
+        case '/':
+          document.querySelector(`.menu nav a:nth-child(2)`).classList.toggle('bold')
+          break
+        
+        case'/explore':
+        document.querySelector(`.menu nav a:nth-child(3)`).classList.toggle('bold')
+          break
+        case '/universe':
+          document.querySelector(`.menu nav a:nth-child(4)`).classList.toggle('bold')
+          break
+      }
     }
 }
 
